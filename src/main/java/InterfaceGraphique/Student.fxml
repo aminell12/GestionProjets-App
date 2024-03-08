@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceGraphique.StudentController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane prefHeight="650.0" prefWidth="1050.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane fx:id="PaneHautContenaire1" prefHeight="65.0" prefWidth="1050.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="PaneHautContenaire" layoutX="1.0" layoutY="-1.0" prefHeight="65.0" prefWidth="1050.0" styleClass="BorderPaneHaut" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="PH_Label_Nomprojet" layoutX="474.0" layoutY="19.0" text="MyProject" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="UMBRELLA" text="" />
+                                 </graphic>
+                              </Label>
+                              <Button fx:id="DeconnecteBtn" layoutX="922.0" layoutY="22.0" mnemonicParsing="false" onAction="#backtoLogin" styleClass="signout" stylesheets="@StudentDesign.css" text="Se Déconnecter" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#fffefe" glyphName="POWER_OFF" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="Menu" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#MenuBarSlide" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#fffefe" glyphName="NAVICON" size="1.5em">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIcon>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <stylesheets>
+                              <URL value="@TeacherDesign.css" />
+                              <URL value="@StudentDesign.css" />
+                           </stylesheets>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane fx:id="PaneLeft" prefHeight="500.0" prefWidth="195.0" stylesheets="@TeacherDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox fx:id="MenuVbox" alignment="TOP_CENTER" fillWidth="false" prefHeight="585.0" prefWidth="195.0" spacing="10.0" styleClass="VboxGauche" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon fill="#fffefe" glyphName="USER" size="5em" />
+                              <Label fx:id="Nom_Student" alignment="CENTER" contentDisplay="CENTER" stylesheets="@TeacherDesign.css" text="Élève" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </Label>
+                              <Line endX="13.672164916992188" endY="-0.20712202787399292" startX="-148.5" startY="-0.20712202787399292" stroke="#fffefe" strokeLineCap="ROUND">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Line>
+                              <Button fx:id="MenuSlide_btn_P" graphicTextGap="10.0" mnemonicParsing="false" onAction="#switchpane" prefHeight="20.0" prefWidth="170.0" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" text="Projet" VBox.vgrow="NEVER">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="TABLE" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="MenuSlide_btn_N" graphicTextGap="10.0" mnemonicParsing="false" onAction="#switchpane" prefHeight="20.0" prefWidth="170.0" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" text="Note">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="CLIPBOARD" text="" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets top="30.0" />
+                           </padding>
+                           <stylesheets>
+                              <URL value="@TeacherDesign.css" />
+                              <URL value="@StudentDesign.css" />
+                           </stylesheets>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="PC_Note" layoutX="7.0" prefHeight="585.0" prefWidth="855.0" styleClass="PC_Projet" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutY="43.0" prefHeight="542.0" prefWidth="855.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+                                 <children>
+                                    <TableView fx:id="Note_Table" layoutX="-434.0" layoutY="43.0" prefHeight="542.0" prefWidth="850.0" scaleShape="false" styleClass="table" stylesheets="@StudentDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="Note_Table_col_Cours" prefWidth="170.0" text="Cours" />
+                                        <TableColumn fx:id="Note_Table_col_Sujet" prefWidth="170.0" text="Sujet" />
+                                          <TableColumn fx:id="Note_Table_col_NR" prefWidth="170.0" text="NotesRapport" />
+                                          <TableColumn fx:id="Note_Table_col_NS" prefWidth="170.0" text="NotesSoutenance" />
+                                          <TableColumn fx:id="Note_Table_col_MP" prefWidth="170.0" text="MoyenneProjet" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <TextField fx:id="Grades_search" layoutX="9.0" layoutY="13.0" prefHeight="25.0" prefWidth="416.0" promptText="Chercher" styleClass="search" stylesheets="@StudentDesign.css" />
+                              <FontAwesomeIcon glyphName="SEARCH" layoutX="14.0" layoutY="30.0" size="1.25em" text="" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="PC_Projet" prefHeight="585.0" prefWidth="855.0" styleClass="PC_Projet">
+                           <children>
+                              <AnchorPane layoutX="280.0" prefHeight="585.0" prefWidth="575.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TableView fx:id="Projet_Table" layoutX="88.0" layoutY="43.0" onMouseClicked="#getSelectedProjetsTable" prefHeight="542.0" prefWidth="500.0" scaleShape="false" styleClass="table" stylesheets="@StudentDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+                                       <columns>
+                                          <TableColumn fx:id="Projet_Table_col_Cours" prefWidth="100.0" text="Cours" />
+                                          <TableColumn fx:id="Projet_Table_col_Sujet" prefWidth="100.0" text="Sujet" />
+                                          <TableColumn fx:id="Projet_Table_col_NotesRapport" prefWidth="118.0" text="NotesRapport" />
+                                          <TableColumn fx:id="Projet_Table_col_NotesS" prefWidth="118.0" text="NotesSoutenance" />
+                                          <TableColumn fx:id="Projet_Table_col_Status" prefWidth="137.0" text="Status" />
+                                       </columns>
+                                    </TableView>
+                                    <TextField fx:id="Grades_search1" layoutX="1.0" layoutY="14.0" prefHeight="25.0" prefWidth="416.0" promptText="Chercher" styleClass="search" stylesheets="@StudentDesign.css" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="7.0" layoutY="31.0" size="1.25em" text="" />
+                                 </children>
+                              </AnchorPane>
+                              <Label fx:id="Grades_Label_Sujet" layoutX="36.0" layoutY="119.0" text="Cours :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Projet_CB_Cours" layoutX="121.0" layoutY="116.0" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" stylesheets="@StudentDesign.css" />
+                              <Label fx:id="Grades_Label_Sujet1" layoutX="38.0" layoutY="160.0" text="Sujet :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Projet_CB_sujet" layoutX="122.0" layoutY="156.0" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" stylesheets="@StudentDesign.css" />
+                              <DatePicker fx:id="Projet_Date" layoutX="122.0" layoutY="197.0" prefHeight="25.0" prefWidth="135.0" styleClass="textfield" stylesheets="@StudentDesign.css" />
+                              <Label fx:id="Grades_Label_Sujet11" layoutX="40.0" layoutY="201.0" text="Date :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="Projet_remis" layoutX="36.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleRemiseProjet" prefHeight="38.0" prefWidth="238.0" styleClass="add-btn" stylesheets="@StudentDesign.css" text="Remettre" />
+                              <Label fx:id="Grades_Label_Sujet2" layoutX="14.0" layoutY="14.0" prefHeight="44.0" prefWidth="265.0" styleClass="TitreProjet" stylesheets="@StudentDesign.css" text="Remise de Projets">
+                                 <font>
+                                    <Font name="Tahoma" size="48.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

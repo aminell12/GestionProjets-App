@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InterfaceGraphique.TeacherController">
+   <children>
+      <AnchorPane fx:id="Fenetre" prefHeight="550.0" prefWidth="1050.0">
+         <children>
+            <BorderPane fx:id="BorderPaneCont" layoutX="-9.0" prefHeight="550.0" prefWidth="811.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane fx:id="PaneHautContenaire1" prefHeight="65.0" prefWidth="1050.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="PaneHautContenaire" layoutX="1.0" layoutY="-1.0" prefHeight="55.0" prefWidth="801.0" styleClass="BorderPaneHaut" stylesheets="@TeacherDesign.css">
+                           <children>
+                              <Label fx:id="PH_Label_Nomprojet" layoutX="347.0" layoutY="15.0" text="MyProject" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="UMBRELLA" text="" />
+                                 </graphic>
+                              </Label>
+                              <Button fx:id="DeconnecteBtn" layoutX="676.0" layoutY="15.0" mnemonicParsing="false" onAction="#backtoLogin" styleClass="signout" text="Se Déconnecter" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#fffefe" glyphName="POWER_OFF" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="Menu" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#MenuBarSlide" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#fffefe" glyphName="NAVICON" size="1.5em">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIcon>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane fx:id="PaneLeft" prefHeight="500.0" prefWidth="195.0" stylesheets="@TeacherDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox fx:id="MenuVbox" alignment="TOP_CENTER" fillWidth="false" prefHeight="470.0" prefWidth="195.0" spacing="10.0" styleClass="VboxGauche" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-11.0">
+                           <children>
+                              <FontAwesomeIcon fill="#fffefe" glyphName="USER" size="5em" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" stylesheets="@TeacherDesign.css" text="Nom du prof" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial" size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </Label>
+                              <Line endX="13.672164916992188" endY="-0.20712202787399292" startX="-148.5" startY="-0.20712202787399292" stroke="#fffefe" strokeLineCap="ROUND">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin></Line>
+                              <Button fx:id="MenuSlide_btn_TB" alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#switchpane" prefHeight="20.0" prefWidth="170.0" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" text="Tableau de Bord">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="HOME" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="MenuSlide_btn_P" graphicTextGap="10.0" mnemonicParsing="false" onAction="#switchpane" prefHeight="20.0" prefWidth="170.0" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" text="Projet" VBox.vgrow="NEVER">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="TABLE" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="MenuSlide_btn_N" graphicTextGap="10.0" mnemonicParsing="false" onAction="#switchpane" prefHeight="20.0" prefWidth="170.0" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" text="Note">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="CLIPBOARD" text="" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="MenuSlide_btn_Ele" graphicTextGap="10.0" mnemonicParsing="false" onAction="#switchpane" prefHeight="20.0" prefWidth="170.0" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" text="Élève">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="CHILD" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="MenuSlide_btn_Bin" graphicTextGap="10.0" mnemonicParsing="false" onAction="#switchpane" prefHeight="20.0" prefWidth="170.0" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" text="Binôme">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="GROUP" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="MenuSlide_btn_For" graphicTextGap="10.0" mnemonicParsing="false" onAction="#switchpane" prefHeight="20.0" prefWidth="170.0" styleClass="BtnMenuSlide" stylesheets="@TeacherDesign.css" text="Formation">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="PENCIL" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets top="30.0" />
+                           </padding>
+                        </VBox>
+                        <AnchorPane fx:id="PGTableauBord" prefHeight="470.0" prefWidth="195.0" stylesheets="@TeacherDesign.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="Dashboard_PaneG_PRC" layoutX="10.0" layoutY="10.0" prefHeight="125.0" prefWidth="170.0" styleClass="PaneGauche" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="TABLE" layoutX="15.0" layoutY="78.0" size="3.5em" />
+                                    <Label fx:id="Dashboard_Label_PRCAffichstat" alignment="CENTER_RIGHT" layoutX="69.0" layoutY="23.0" prefHeight="25.0" prefWidth="90.0" text="0" textFill="#fffdfd">
+                                       <font>
+                                          <Font name="Tahoma" size="30.0" />
+                                       </font></Label>
+                                    <Label fx:id="Dashboard_Label_PRC" alignment="CENTER" layoutX="25.0" layoutY="85.0" prefHeight="30.0" prefWidth="120.0" styleClass="BtnInteractionTables" text="Projet en cours" textFill="#fffdfd" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="Dashboard_Table_BinRAffStat" layoutX="10.0" layoutY="170.0" prefHeight="125.0" prefWidth="170.0" styleClass="PaneGauche" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <TableView layoutX="-2.0" prefHeight="138.0" prefWidth="174.0" styleClass="table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                          <TableColumn prefWidth="57.63480186462402" resizable="false" text="ProjetID" />
+                                        <TableColumn prefWidth="44.325233459472656" resizable="false" text="Nom" />
+                                        <TableColumn prefWidth="74.67476654052734" resizable="false" text="Prénom" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="Dashboard_Pane_AffStat" layoutX="10.0" layoutY="340.0" prefHeight="125.0" prefWidth="170.0" styleClass="PaneGauche" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <Label fx:id="Dashboard_LabelT_BinRAffStat" alignment="CENTER" layoutX="10.0" layoutY="87.0" prefHeight="30.0" prefWidth="150.0" text="Total Binômes en retard" textFill="#fffdfd" />
+                                    <Label fx:id="Dashboard_Label_BinRAffStat" alignment="CENTER_RIGHT" layoutX="69.0" layoutY="13.0" prefHeight="25.0" prefWidth="90.0" text="0" textFill="#fffdfd">
+                                       <font>
+                                          <Font size="31.0" />
+                                       </font></Label>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="GROUP" layoutX="7.0" layoutY="77.0" size="3.5em" />
+                                 </children>
+                              </AnchorPane>
+                              <Label fx:id="Dashboard_Label_date" alignment="CENTER" layoutX="37.0" layoutY="296.0" prefHeight="30.0" prefWidth="120.0" text="Remis Récent" textFill="#104561">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#104561" glyphName="CALENDAR" />
+                                 </graphic>
+                              </Label>
+                           </children>
+                           <styleClass>
+                              <String fx:value="PaneCentral" />
+                              <String fx:value="shadow" />
+                           </styleClass></AnchorPane>
+                        <AnchorPane fx:id="PGInsertionStudent" prefHeight="470.0" prefWidth="195.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="Student_PG_AffichStat" layoutX="11.0" layoutY="17.0" prefHeight="125.0" prefWidth="170.0" styleClass="PaneGauche" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="12.0" layoutY="78.0" size="3.5em" />
+                                    <Label fx:id="Student_PGL_AffnbEl" alignment="CENTER_RIGHT" layoutX="69.0" layoutY="23.0" prefHeight="25.0" prefWidth="90.0" text="0" textFill="#fffdfd">
+                                       <font>
+                                          <Font name="Tahoma" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="Student_PGL_nbel" layoutX="25.0" layoutY="87.0" prefHeight="35.0" prefWidth="120.0" styleClass="BtnInteractionTables" stylesheets="@TeacherDesign.css" text="Nombre d'élèves" textFill="#fffdfd" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="Student_PG_BtnTable" layoutX="10.0" layoutY="170.0" prefHeight="289.0" prefWidth="170.0" styleClass="PaneGaucheTable" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <Button fx:id="Student_Btn_Insert" layoutX="25.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleInsertActionStudent" prefHeight="30.0" prefWidth="120.0" styleClass="add-btn" text="Insertion">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Student_Btn_Actua" layoutX="25.0" layoutY="100.0" mnemonicParsing="false" onAction="#refreshDataStudent" prefHeight="30.0" prefWidth="120.0" styleClass="actualiser-btn" text="Actualiser">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Student_Btn_Supp" layoutX="25.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleSuppressionActionStudent" prefHeight="30.0" prefWidth="120.0" styleClass="delete-btn" text="Suppression">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Student_Btn_Modif" layoutX="25.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleModificationStudent" prefHeight="30.0" prefWidth="120.0" styleClass="update-btn" text="Modification">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="PaneCentral" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                        <AnchorPane fx:id="PGInsertionFormation" prefHeight="470.0" prefWidth="195.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="Formation_PG_BtnTable" layoutX="10.0" layoutY="170.0" prefHeight="289.0" prefWidth="170.0" styleClass="PaneGaucheTable" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <Button fx:id="Formation_Btn_Insert" layoutX="25.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleInsertActionFormation" prefHeight="30.0" prefWidth="120.0" styleClass="add-btn" text="Insertion">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Formation_Btn_Actua" layoutX="25.0" layoutY="100.0" mnemonicParsing="false" onAction="#refreshDataFormation" prefHeight="30.0" prefWidth="120.0" styleClass="actualiser-btn" text="Actualiser">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Formation_Btn_Supp" layoutX="25.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleSuppressionActionFormation" prefHeight="30.0" prefWidth="120.0" styleClass="delete-btn" text="Suppression">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Formation_Btn_Mod" layoutX="25.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleModificationActionFormation" prefHeight="30.0" prefWidth="120.0" styleClass="update-btn" text="Modification">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="Formation_PG_Affstat" layoutX="10.0" layoutY="10.0" prefHeight="125.0" prefWidth="170.0" styleClass="PaneGauche" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="PENCIL" layoutX="12.0" layoutY="78.0" size="3.5em" />
+                                    <Label fx:id="Formation_Label_nbForma" alignment="CENTER_RIGHT" layoutX="69.0" layoutY="23.0" prefHeight="25.0" prefWidth="90.0" text="0" textFill="#fffdfd">
+                                       <font>
+                                          <Font name="Tahoma" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="Formation_Label_txt" layoutX="8.0" layoutY="87.0" prefHeight="35.0" prefWidth="159.0" styleClass="BtnInteractionTables" stylesheets="@TeacherDesign.css" text="Nombre de formations" textFill="#fffdfd" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="PaneCentral" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                        <AnchorPane fx:id="PGInsertionBinome" prefHeight="470.0" prefWidth="195.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="BInome_PG_BtnINsert" layoutX="10.0" layoutY="170.0" prefHeight="289.0" prefWidth="170.0" styleClass="PaneGaucheTable" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <Button layoutX="25.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleInsertActionBinome" prefHeight="30.0" prefWidth="120.0" styleClass="add-btn" text="Insertion">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button layoutX="25.0" layoutY="100.0" mnemonicParsing="false" onAction="#refreshDataBinome" prefHeight="30.0" prefWidth="120.0" styleClass="actualiser-btn" text="Actualiser">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button layoutX="25.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleSuppressionActionBinome" prefHeight="30.0" prefWidth="120.0" styleClass="delete-btn" text="Suppression">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button layoutX="25.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleModificationActionBinome" prefHeight="30.0" prefWidth="120.0" styleClass="update-btn" text="Modification">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="BInomePaneG_AffStats" layoutX="11.0" layoutY="17.0" prefHeight="125.0" prefWidth="170.0" styleClass="PaneGauche" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="GROUP" layoutX="12.0" layoutY="78.0" size="3.5em" />
+                                    <Label fx:id="BInome_Label_Inb" alignment="CENTER_RIGHT" layoutX="69.0" layoutY="23.0" prefHeight="25.0" prefWidth="90.0" text="0" textFill="#fffdfd">
+                                       <font>
+                                          <Font name="Tahoma" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="BInome_Label_nbBIn" layoutX="8.0" layoutY="87.0" prefHeight="35.0" prefWidth="159.0" styleClass="BtnInteractionTables" stylesheets="@TeacherDesign.css" text="Nombre de binômes" textFill="#fffdfd" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="PaneCentral" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                        <AnchorPane fx:id="PGInsertionProjet" prefHeight="470.0" prefWidth="195.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="Projet_paneG_affichage" layoutX="10.0" layoutY="170.0" prefHeight="289.0" prefWidth="170.0" styleClass="PaneGaucheTable" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <Button fx:id="Projet_Btn_Insert" layoutX="25.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleInsertActionProjets" prefHeight="30.0" prefWidth="120.0" styleClass="add-btn" text="Insertion">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Projet_Btn_Actu" layoutX="25.0" layoutY="100.0" mnemonicParsing="false" onAction="#refreshDataProjets" prefHeight="30.0" prefWidth="120.0" styleClass="actualiser-btn" text="Actualiser">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Projet_Btn_Supp" layoutX="25.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleSuppressionActionProjets" prefHeight="30.0" prefWidth="120.0" styleClass="delete-btn" text="Suppression">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Projet_Btn_Mod" layoutX="25.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleModificationActionProjets" prefHeight="30.0" prefWidth="120.0" styleClass="update-btn" text="Modification">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="Projet_paneG_affichage" layoutX="11.0" layoutY="17.0" prefHeight="125.0" prefWidth="170.0" styleClass="PaneGauche" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="TABLE" layoutX="12.0" layoutY="78.0" size="3.5em" />
+                                    <Label fx:id="Projet_Label_PG_NbAffStat" alignment="CENTER_RIGHT" layoutX="69.0" layoutY="23.0" prefHeight="25.0" prefWidth="90.0" text="0" textFill="#fffdfd">
+                                       <font>
+                                          <Font name="Tahoma" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="Projet_labelPG_NbForma" layoutX="8.0" layoutY="87.0" prefHeight="35.0" prefWidth="159.0" styleClass="BtnInteractionTables" stylesheets="@TeacherDesign.css" text="Nombre de projets" textFill="#fffdfd" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="PaneCentral" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                        <AnchorPane fx:id="PGInsertionNotes" prefHeight="470.0" prefWidth="195.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="Notes_paneG_affichage" layoutX="10.0" layoutY="170.0" prefHeight="289.0" prefWidth="170.0" styleClass="PaneGaucheTable" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <Button fx:id="Notes_Btn_Insert" layoutX="25.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleInsertActionNote" prefHeight="30.0" prefWidth="120.0" styleClass="add-btn" text="Insertion">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Notes_Btn_Actu" layoutX="25.0" layoutY="100.0" mnemonicParsing="false" onAction="#refreshDataNote" prefHeight="30.0" prefWidth="120.0" styleClass="actualiser-btn" text="Actualiser">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Notes_Btn_Supp" layoutX="25.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleSuppressionActionNote" prefHeight="30.0" prefWidth="120.0" styleClass="delete-btn" text="Suppression">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="Notes_Btn_Mod" layoutX="25.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleModificationActionNote" prefHeight="30.0" prefWidth="120.0" styleClass="update-btn" text="Modification">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="Notes_paneG_affichage1" layoutX="11.0" layoutY="17.0" prefHeight="125.0" prefWidth="170.0" styleClass="PaneGauche" stylesheets="@TeacherDesign.css">
+                                 <children>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="CLIPBOARD" layoutX="12.0" layoutY="78.0" size="3.5em" />
+                                    <Label fx:id="Notes_Label_PG_1" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="23.0" prefHeight="25.0" prefWidth="90.0" text="0" textFill="#fffdfd">
+                                       <font>
+                                          <Font name="Tahoma" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="Notes_labelPG_MPC1" layoutX="8.0" layoutY="87.0" prefHeight="35.0" prefWidth="159.0" styleClass="BtnInteractionTables" stylesheets="@TeacherDesign.css" text="Moyenne par Cours" textFill="#fffdfd" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="PaneCentral" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane fx:id="PaneCentral" prefHeight="485.0" prefWidth="758.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="PaneCDB" prefHeight="470.0" prefWidth="600.0" stylesheets="@TeacherDesign.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="dashboard_pane_graph" layoutX="5.0" layoutY="249.0" prefHeight="470.0" prefWidth="597.0" stylesheets="@TeacherDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <styleClass>
+                                    <String fx:value="PaneCentralEnfant" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <BarChart fx:id="dashboard_graph" layoutX="-87.0" layoutY="-245.0" prefHeight="470.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                    <Label fx:id="dashboard_panel_graph" layoutX="240.0" layoutY="447.0" prefHeight="17.0" prefWidth="100.0" text="Moyene par projet" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="PaneCentral" />
+                              <String fx:value="shadow" />
+                           </styleClass></AnchorPane>
+                        <AnchorPane fx:id="PaneCStudent" prefHeight="470.0" prefWidth="600.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="PaneCentral" />
+                           </styleClass>
+                           <children>
+                              <AnchorPane fx:id="Student_PC_Table" layoutX="1.0" layoutY="169.0" prefHeight="303.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="169.0">
+                                 <styleClass>
+                                    <String fx:value="PaneCentralEnfant" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="Student_search" layoutX="17.0" layoutY="11.0" prefHeight="25.0" prefWidth="215.0" promptText="Chercher" styleClass="search" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="25.0" layoutY="29.0" size="1.25em" text="" />
+                                    <TableView fx:id="Student_Table" layoutX="6.0" layoutY="48.0" onMouseClicked="#getSelectedStudentTable" prefHeight="245.0" prefWidth="590.0" scaleShape="false" styleClass="table" stylesheets="@TeacherDesign.css">
+                                      <columns>
+                                        <TableColumn fx:id="Student_Table_col_numID" editable="false" prefWidth="70.0" resizable="false" text="NumID" />
+                                        <TableColumn fx:id="Student_Table_col_Nom" editable="false" prefWidth="130.0" resizable="false" text="Nom" />
+                                          <TableColumn fx:id="Student_Table_col_Prenom" editable="false" prefWidth="130.0" resizable="false" text="Prénom" />
+                                          <TableColumn fx:id="Student_Table_col_forma" editable="false" prefWidth="130.0" resizable="false" text="Formation" />
+                                          <TableColumn fx:id="Student_Table_col_promo" editable="false" prefWidth="130.0" resizable="false" text="Promotion" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <Label fx:id="Student_Label_Nom" layoutX="60.0" layoutY="28.0" text="Nom  :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="Student_TF_nom" layoutX="115.0" layoutY="25.0" prefHeight="25.0" prefWidth="135.0" promptText="TEXT" styleClass="textfield" />
+                              <Label fx:id="Student_Label_prenom" layoutX="39.0" layoutY="89.0" text="Prénom :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="Student_TF_prenom" layoutX="112.0" layoutY="86.0" prefHeight="25.0" prefWidth="135.0" promptText="TEXT" styleClass="textfield" />
+                              <Label fx:id="Student_Label_forma" layoutX="300.0" layoutY="30.0" text="Formation : ">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Student_Label_promo" layoutX="295.0" layoutY="91.0" text="Promotion :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Student_Combo_forma" layoutX="385.0" layoutY="25.0" onAction="#updatePromotionParFormationStudent" prefHeight="26.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                              <ComboBox fx:id="Student_Combo_promo" layoutX="385.0" layoutY="86.0" prefHeight="26.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" visibleRowCount="5" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="PaneCFormation" prefHeight="470.0" prefWidth="600.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="PaneCentral" />
+                           </styleClass>
+                           <children>
+                              <AnchorPane fx:id="Formation_PC_Table" layoutX="1.0" layoutY="169.0" prefHeight="303.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="169.0">
+                                 <styleClass>
+                                    <String fx:value="PaneCentralEnfant" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="Formation_search" layoutX="17.0" layoutY="11.0" prefHeight="25.0" prefWidth="215.0" promptText="Chercher" styleClass="search" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="25.0" layoutY="29.0" size="1.25em" text="" />
+                                    <TableView fx:id="Formation_Table" layoutX="6.0" layoutY="48.0" onMouseClicked="#getSelectedFormationTable" prefHeight="248.0" prefWidth="591.0" scaleShape="false" styleClass="table" stylesheets="@TeacherDesign.css">
+                                       <columns>
+                                          <TableColumn fx:id="Formation_Table_col_numID" editable="false" prefWidth="70.0" resizable="false" text="NumID" />
+                                          <TableColumn fx:id="Formation_Table_col_forma" editable="false" prefWidth="232.64657592773438" resizable="false" text="Formation" />
+                                          <TableColumn fx:id="Formation_Table_col_promo" editable="false" prefWidth="287.8534851074219" resizable="false" text="Promotion" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <TextField fx:id="Formation_TF_Forma" layoutX="118.0" layoutY="75.0" prefHeight="25.0" prefWidth="135.0" promptText="TEXT" styleClass="textfield" />
+                              <Label fx:id="Formation_Label_promo" layoutX="298.0" layoutY="80.0" text="Promotion :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Formation_Label_forma" layoutX="33.0" layoutY="80.0" text="Formation : ">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Formation_Combo_promo" layoutX="383.0" layoutY="75.0" prefHeight="26.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="PaneCBinome" prefHeight="470.0" prefWidth="600.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="PaneCentral" />
+                           </styleClass>
+                           <children>
+                              <AnchorPane fx:id="Binome_pane_table" layoutX="1.0" layoutY="169.0" prefHeight="303.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="169.0">
+                                 <styleClass>
+                                    <String fx:value="PaneCentralEnfant" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="Binome_tsearch" layoutX="17.0" layoutY="11.0" prefHeight="25.0" prefWidth="215.0" promptText="Chercher" styleClass="search" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="25.0" layoutY="29.0" size="1.25em" text="" />
+                                    <TableView fx:id="Binome_table" layoutX="6.0" layoutY="48.0" onMouseClicked="#getSelectedBinomeTable" prefHeight="248.0" prefWidth="591.0" scaleShape="false" styleClass="table" stylesheets="@TeacherDesign.css">
+                                       <columns>
+                                          <TableColumn fx:id="Binome_table_col_numID" editable="false" prefWidth="70.0" resizable="false" text="NumID" />
+                                          <TableColumn fx:id="Binome_table_col_el1" editable="false" prefWidth="130.0" resizable="false" text="Élève 1" />
+                                          <TableColumn fx:id="Binome_table_col_el2" editable="false" prefWidth="130.0" resizable="false" text="Élève 2" />
+                                          <TableColumn fx:id="Binome_table_col_sujet" editable="false" prefWidth="130.0" resizable="false" text="Sujet" />
+                                          <TableColumn fx:id="Binome_table_col_DateRem" editable="false" prefWidth="130.0" resizable="false" text="DateRemiEffective" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <Label fx:id="Binome_Label_cours" layoutX="35.0" layoutY="60.0" text="Cours :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Binome_Combo_cours" layoutX="122.0" layoutY="54.0" onAction="#updateSujetParCoursBinome" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                              <Label fx:id="Binome_Label_sujet" layoutX="35.0" layoutY="122.0" text="Sujet :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Binome_Combo_Sujet" layoutX="120.0" layoutY="118.0" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                              <Label fx:id="Binome_Label_nb" layoutX="335.0" layoutY="45.0" text="Nombre :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <CheckBox fx:id="Binome_CheckB_1" layoutX="430.0" layoutY="45.0" mnemonicParsing="false" onMouseClicked="#checkStudent1" text="1" />
+                              <CheckBox fx:id="Binome_CheckB_2" layoutX="533.0" layoutY="45.0" mnemonicParsing="false" onMouseClicked="#checkStudent2" text="2" />
+                              <Label fx:id="Binome_label_El1" layoutX="335.0" layoutY="80.0" text="Élève 1 :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Binome_Combo_El1" layoutX="430.0" layoutY="75.0" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                              <Label fx:id="Binome_Label_El2" layoutX="335.0" layoutY="125.0" text="Élève 2 :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Binome_Combo_El2" layoutX="430.0" layoutY="120.0" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="PaneCProjet" prefHeight="470.0" prefWidth="600.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="PaneCentral" />
+                           </styleClass>
+                           <children>
+                              <AnchorPane fx:id="Projet_pane_table" layoutX="1.0" layoutY="169.0" prefHeight="303.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="169.0">
+                                 <styleClass>
+                                    <String fx:value="PaneCentralEnfant" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField layoutX="17.0" layoutY="11.0" prefHeight="25.0" prefWidth="215.0" promptText="Chercher" styleClass="search" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="25.0" layoutY="29.0" size="1.25em" text="" />
+                                    <TableView fx:id="Projet_Table" layoutX="6.0" layoutY="48.0" onMouseClicked="#getSelectedProjetsTable" prefHeight="248.0" prefWidth="590.0" scaleShape="false" styleClass="table" stylesheets="@TeacherDesign.css">
+                                       <columns>
+                                          <TableColumn fx:id="Projet_Table_col_NumID" editable="false" prefWidth="50.0" resizable="false" text="NumID" />
+                                          <TableColumn fx:id="Projet_Table_col_Cours" editable="false" prefWidth="135.0" resizable="false" text="Cours" />
+                                          <TableColumn fx:id="Projet_Table_col_Sujet" editable="false" prefWidth="135.0" resizable="false" text="Sujet" />
+                                          <TableColumn fx:id="Projet_Table_col_DateRemise" editable="false" prefWidth="135.0" resizable="false" text="DateRemise" />
+                                          <TableColumn fx:id="Projet_Table_col_Formation" editable="false" prefWidth="135.0" resizable="false" text="FormationID" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <Label fx:id="Projet_Label_forma" layoutX="20.0" layoutY="40.0" text="Formation :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Projet_Combo_forma" layoutX="105.0" layoutY="35.0" onAction="#updatePromotionParFormationProjet" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                              <Label fx:id="Projet_Label_promo" layoutX="20.0" layoutY="102.0" text="Promotion :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Projet_Combo_promo" layoutX="105.0" layoutY="95.0" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                              <Label fx:id="Projet_Label_Cours" layoutX="335.0" layoutY="29.0" text="Cours :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Projet_Label_sujet" layoutX="335.0" layoutY="69.0" text="Sujet :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Projet_Label_date" layoutX="269.0" layoutY="105.0" text="Date de remise :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="Projet_Tf_Cours" layoutX="410.0" layoutY="27.0" prefHeight="25.0" prefWidth="135.0" promptText="TEXT" styleClass="textfield" />
+                              <TextField fx:id="Projet_Tf_sujet" layoutX="410.0" layoutY="65.0" prefHeight="25.0" prefWidth="135.0" promptText="TEXT" styleClass="textfield" />
+                              <DatePicker fx:id="Projet_date" layoutX="410.0" layoutY="105.0" prefHeight="25.0" prefWidth="135.0" promptText="DATE" styleClass="textfield" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="PaneCNotes" prefHeight="470.0" prefWidth="600.0" stylesheets="@TeacherDesign.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="PaneCentral" />
+                           </styleClass>
+                           <children>
+                              <AnchorPane fx:id="Grades_pane_table" layoutX="1.0" layoutY="169.0" prefHeight="303.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="169.0">
+                                 <styleClass>
+                                    <String fx:value="PaneCentralEnfant" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="Grades_search" layoutX="17.0" layoutY="11.0" prefHeight="25.0" prefWidth="215.0" promptText="Chercher" styleClass="search" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="25.0" layoutY="29.0" size="1.25em" text="" />
+                                    <TableView fx:id="Grades_Table" layoutX="6.0" layoutY="48.0" onMouseClicked="#getSelectedNote" prefHeight="248.0" prefWidth="590.0" scaleShape="false" styleClass="table" stylesheets="@TeacherDesign.css">
+                                       <columns>
+                                          <TableColumn fx:id="Grades_Table_col_ID" editable="false" prefWidth="50.0" resizable="false" text="NumID" />
+                                          <TableColumn fx:id="Grades_Table_col_Nom" editable="false" prefWidth="77.1428571" resizable="false" text="Nom" />
+                                          <TableColumn fx:id="Grades_Table_col_Prenom" editable="false" prefWidth="77.1428571" resizable="false" text="Prénom" />
+                                          <TableColumn fx:id="Grades_Table_col_Cours" editable="false" prefWidth="77.1428571" resizable="false" text="Cours" />
+                                          <TableColumn fx:id="Grades_Table_col_Sujet" editable="false" prefWidth="77.1428571" resizable="false" text="Sujet" />
+                                          <TableColumn fx:id="Grades_Table_col_NR" editable="false" prefWidth="77.1428571" resizable="false" text="NR." />
+                                          <TableColumn fx:id="Grades_Table_col_NS" editable="false" prefWidth="77.1428571" resizable="false" text="NS." />
+                                          <TableColumn fx:id="Grades_Table_col_Moy" editable="false" prefWidth="77.1428571" resizable="false" text="Moy." />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <Label fx:id="Grades_Label_Sujet" layoutX="20.0" layoutY="30.0" text="Cours :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Grades_CB_Cours" layoutX="105.0" layoutY="27.0" onAction="#updateSujetAndEleveParCoursNote" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                              <Label fx:id="Grades_Label_Sujet" layoutX="24.0" layoutY="70.0" text="Sujet :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Grades_CB_Sujet" layoutX="105.0" layoutY="65.0" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                              <Label fx:id="Grades_Label_GradesR" layoutX="290.0" layoutY="30.0" text="Note rapport :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Grades_Label_GradesS" layoutX="263.0" layoutY="70.0" text="Note soutenance :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="Grades_TF_GradesR" layoutX="410.0" layoutY="25.0" prefHeight="25.0" prefWidth="135.0" promptText="TEXT" styleClass="btnNote" stylesheets="@TeacherDesign.css" />
+                              <TextField fx:id="Grades_TF_GradesS" layoutX="410.0" layoutY="65.0" prefHeight="25.0" prefWidth="135.0" promptText="TEXT" styleClass="btnNote" />
+                              <Label fx:id="Grades_Label_student" layoutX="22.5" layoutY="110.0" text="Élève :">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="Grades_Box_student" layoutX="105.0" layoutY="105.0" prefHeight="25.0" prefWidth="136.0" promptText="Choisir" styleClass="textfield" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

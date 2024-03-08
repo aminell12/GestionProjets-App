@@ -1,0 +1,8 @@
+.left-form,
+.lancer-btn {
+  -fx-background-color: linear-gradient(to bottom left, #104561, #2e6989);
+}
+
+.lancer-btn {
+  -fx-background-radius: 10;
+}

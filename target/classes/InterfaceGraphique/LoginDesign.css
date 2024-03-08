@@ -1,0 +1,24 @@
+.right-pane,
+.btnConnecterStu {
+  -fx-background-color: #2e6989;
+}
+
+.left-pane,
+.BtnAccueil,
+.btnConnecterTeacher {
+  -fx-background-color: #104561;
+}
+
+.BtnAccueil,
+.btnConnecterTeacher,
+.TextPassTeacher,
+.TextUserTeacher,
+.TextUserstud,
+.TextPassStud,
+.btnConnecterStu {
+  -fx-background-radius: 10;
+  -fx-radius: 8;
+  -fx-border-color: black;
+  -fx-border-width: 0.2px;
+  -fx-border-radius: 10px;
+}
